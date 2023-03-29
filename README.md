@@ -18,7 +18,7 @@ Para rodar a aplicação é necessário seguir os seguintes passos.
 ENCRYPT_KEY = "Sua chave de criptografia" <br>
 TOKEN_EXPIRATION_TIME = Tempo em segundos de expiração do token. Ex: 86400 caso queira que o yoken expire em um dia
 
-- Por padrão o serviço do mongo rodano host 'localhost:27017', caso utilize outro caminho será necessário alterar o arquivo 'mongoid.yml' 
+- Por padrão o serviço do mongo roda no host 'localhost:27017', caso utilize outro caminho será necessário alterar o arquivo 'mongoid.yml' 
 
 ## Massa de dados
 
