@@ -15,8 +15,10 @@ Para rodar a aplicação é necessário seguir os seguintes passos.
 
 - Criar arquivo .env na raiz do projeto. Será necessário configurar duas variáveis
 
-ENCRYPT_KEY = "Sua chave de criptografia"
+ENCRYPT_KEY = "Sua chave de criptografia" <br>
 TOKEN_EXPIRATION_TIME = Tempo em segundos de expiração do token. Um dia equivale a 86400 segundos
+
+- Por padrão o serviço do mongo rodano host 'localhost:27017', caso utilize outro caminho será necessário alterar o arquivo 'mongoid.yml' 
 
 ## Massa de dados
 
