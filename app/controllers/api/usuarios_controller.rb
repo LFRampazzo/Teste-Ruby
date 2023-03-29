@@ -20,7 +20,7 @@ class Api::UsuariosController < ApplicationController
 
     if @usuario && @usuario.authenticate_senha(usuario_params[:senha])
       
-      data_expiracao = Time.now + 86400
+      data_expiracao = Time.now + ENV["TOKEN_EXPIRATION_TIME"].to_i
       token = encode_token({id: @usuario.id, expira_em: data_expiracao})
       render json: {token: token}, status: :ok
       

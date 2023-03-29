@@ -5,10 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+include FactoryBot::Syntax::Methods
 
 10.times do
-    nome = Faker::Name.unique.name
-    email = Faker::Internet.email(name: nome, separators: '_')  
-    usuario = Usuario.create(nome:nome, email:email, senha:"12345678")
-    usuario.save!
+    create(:usuario)
 end

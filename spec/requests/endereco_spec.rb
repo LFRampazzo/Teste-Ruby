@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+Dotenv.load
+
 RSpec.describe "Enderecos", type: :request do
 
   let(:usuario) { create :usuario }
@@ -10,7 +12,7 @@ RSpec.describe "Enderecos", type: :request do
 
       it "Dados corretos" do
         data_expiracao = Time.now + 86400
-        token = JWT.encode({id: usuario.id, expira_em: data_expiracao}, "secret")
+        token = JWT.encode({id: usuario.id, expira_em: data_expiracao}, ENV["ENCRYPT_KEY"])
         headers = {
           Authorization: "Bearer #{token}"
         }
@@ -21,7 +23,7 @@ RSpec.describe "Enderecos", type: :request do
       end
       it "Dados incorretos" do
         data_expiracao = Time.now + 86400
-        token = JWT.encode({id: usuario.id, expira_em: data_expiracao}, "secret")
+        token = JWT.encode({id: usuario.id, expira_em: data_expiracao}, ENV["ENCRYPT_KEY"])
         headers = {
           Authorization: "Bearer #{token}"
         }
@@ -31,8 +33,8 @@ RSpec.describe "Enderecos", type: :request do
         expect(response).to have_http_status(:bad_request)
       end
       it "Dados ausentes" do
-        data_expiracao = Time.now + 86400
-        token = JWT.encode({id: usuario.id, expira_em: data_expiracao}, "secret")
+        data_expiracao = Time.now + ENV["TOKEN_EXPIRATION_TIME"].to_i
+        token = JWT.encode({id: usuario.id, expira_em: data_expiracao}, ENV["ENCRYPT_KEY"])
         headers = {
           Authorization: "Bearer #{token}"
         }
@@ -57,7 +59,7 @@ RSpec.describe "Enderecos", type: :request do
 
       it "Tentativa de acesso com token expirado" do
         data_expiracao = Time.now + 1
-        token = JWT.encode({id: usuario.id, expira_em: data_expiracao}, "secret")
+        token = JWT.encode({id: usuario.id, expira_em: data_expiracao}, ENV["ENCRYPT_KEY"])
         headers = {
           Authorization: "Bearer #{token}"
         }
