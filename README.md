@@ -24,7 +24,7 @@ TOKEN_EXPIRATION_TIME = Tempo em segundos de expiração do token. Um dia equiva
 
 ## Testes
 
-- Para rodar os testes é necessário utilizar o comando 'rspec'. Os seguintes cenários foram testados:
+Para rodar os testes é necessário utilizar o comando 'rspec'. Os seguintes cenários foram testados:
 
 * Autenticação de usuário para obtenção do token
 * Autenticação de usuário para obtenção do token com credenciais inválidos
@@ -41,7 +41,7 @@ TOKEN_EXPIRATION_TIME = Tempo em segundos de expiração do token. Um dia equiva
 
 ## Serviços
 
-- Os serviços abaixo podem ser consumidos na aplicação. Caso haja dúvida é possível consultar as rotas através do comando 'rails routes'
+Os serviços abaixo podem ser consumidos na aplicação. Caso haja dúvida é possível consultar as rotas através do comando 'rails routes'
 
 * GET /api/usuarios - Lista os usuários. 
 * GET /api/usuarios/{id} - Passe o id do usuário na URL para consultar detalhes do usuário. Após salvar endereço será possível consultá-lo nesse caminho. Id pode ser consultado na lista de usuários
