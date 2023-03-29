@@ -16,7 +16,7 @@ Para rodar a aplicação é necessário seguir os seguintes passos.
 - Criar arquivo .env na raiz do projeto. Será necessário configurar duas variáveis
 
 ENCRYPT_KEY = "Sua chave de criptografia" <br>
-TOKEN_EXPIRATION_TIME = Tempo em segundos de expiração do token. Um dia equivale a 86400 segundos
+TOKEN_EXPIRATION_TIME = Tempo em segundos de expiração do token. Ex: 86400 caso queira que o yoken expire em um dia
 
 - Por padrão o serviço do mongo rodano host 'localhost:27017', caso utilize outro caminho será necessário alterar o arquivo 'mongoid.yml' 
 
@@ -47,5 +47,5 @@ Os serviços abaixo podem ser consumidos na aplicação. Caso haja dúvida é po
 
 * GET /api/usuarios - Lista os usuários. 
 * GET /api/usuarios/{id} - Passe o id do usuário na URL para consultar detalhes do usuário. Após salvar endereço será possível consultá-lo nesse caminho. Id pode ser consultado na lista de usuários
-* POST /api/auth - Utilize um email de usuário presente na lista e a senha padrão para realizar a autenticação. Será retornado um token para o usuário. Body da requisição precisa conter um JSON com os parâmetros email e senha. Ex : { "email" : "meu email", "senha" : "minha senha" }
-* POST /api/enderecos - Adicione o token gerado na requisição acima no header dessa chamada. Em 'Authorization' selecione o tipo 'Bearer Token' para autenticação, lá é onde informaremos o token. O body da requisição precisa conter um JSON com a informação do cep. Ex : { "cep" : "meu cep" }
+* POST /api/auth - Utilize um email de usuário presente na lista e a senha padrão para realizar a autenticação. Será retornado um token para o usuário. Body da requisição precisa conter um JSON com os parâmetros email e senha. Ex: { "email" : "meu email", "senha" : "minha senha" }
+* POST /api/enderecos - Adicione o token gerado na requisição acima no header dessa chamada. Em 'Authorization' selecione o tipo 'Bearer Token' para autenticação, lá é onde informaremos o token. O body da requisição precisa conter um JSON com a informação do cep. Ex: { "cep" : "meu cep" }
